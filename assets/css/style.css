@@ -2,30 +2,62 @@
     height: 370px;
     width:350px;
     float: right;
-    left: 212px;
-    border: solid grey 8px;
+    left: 213px;
+    border: solid rgb(41, 41, 41) 8px;
+    z-index: 2;
 }
 
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: dark blue;
+    background-color: rgba(90, 141, 69, 0.76);
 } 
 
 .container {
-    background-color: dark grey;
+    background-color: dark rgb(165, 193, 230);
   }
 
 .bg-dark {
-    background-color: rgb(114, 107, 107) !important;
+    background-color: rgb(211, 211, 211) !important;
 }
 
 .bg-light {
     background-color: rgb(206, 201, 201) !important;
 }
 
-#properties {
-    float: left;
-    right: 400px;
+#weather {
+    height: 15%;
+    width: 10%;
+    position: absolute;
+    z-index: 1;
+    border: solid grey 5px;
+    background-color: rgb(152, 211, 150)
+}
+
+.jumbotron {
+    z-index: initial;
+    height: 370px;
+    background-color: rgb(161, 102, 102);
+    border-bottom: solid  rgba(90, 141, 69, 0.76) 30px;
+}
+
+#radar {
+    position: absolute;
+    left: 45px;
+    bottom: 1px;
+    width: 1450px;
+    height: 380px;
+    margin: auto;
+    /* background-color: rgba(92, 160, 92, 0.63); */
+}
+
+.navbar {
+    z-index: 1;
+    position: relative;
+    bottom: 90px;
+}
+
+.nav-item dropdown {
+    left: 5px;
 }
