@@ -21,9 +21,19 @@
 <body>
   <div class="jumbotron jumbotron-fluid m-0 bg-dark">
     <div class="container">
+        <div class="container map">
+            <div id="map">
+            </div>
+            <div id="weather">
+                <div id="description"></div>
+                <h1 id="temp"></h1>
+                <div id="location"></div>
+            </div>
       <h1 class="display-4">Nice Bass!</h1>
       <h2 class="display-4"> Fishing Tournament Catch Tracker</h2>
-      <p class="lead">Get real time updates to win first place!</p>
+      <p class="lead"><strong> Get real time updates to win first place!</strong></p>
+      
+      
     </div>
   </div>
 
@@ -37,7 +47,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Upload Photo</a>
@@ -45,33 +55,40 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Catch</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
+        <li class="nav-item">
+          <a class="nav-link" href="#">Precipitation</a>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Humidity</a>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Temperature</a>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Cloudiness</a>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Wind Speed/Direction</a>
+        <!-- <li class="nav-item dropdown"> -->
+          <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
             Weather
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Action</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> -->
+            <!-- <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item" href="#">Something else here</a> -->
+          
           </div>
         </li>
       </ul>
     </div>
   </nav>
-
-  <div class="container map">
-    <div id="map">
-    </div>
   </div>
-
-    <div id="properties">
+  <hr>
+    <!-- <div id="properties">
         <input class="form-control m-0" type="text" placeholder="" readonly>
         <input class="form-control m-0" type="text" placeholder="" readonly>
         <input class="form-control m-0" type="text" placeholder="" readonly>
         <input class="form-control m-0" type="text" placeholder="" readonly>
         <input class="form-control m-0" type="text" placeholder="" readonly>
-    </div>
+    </div> -->
 
 
 

@@ -1,8 +1,20 @@
+h1,h2
+{
+    text-shadow: 2px 2px #06011d;
+}
+
+.jumbotron{
+    max-height: 400px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
 #map {
-    height: 370px;
+    height: 300px;
     width:350px;
     float: right;
-    left: 212px;
+    left: 100px;
     border: solid grey 8px;
 }
 
