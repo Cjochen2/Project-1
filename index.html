@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,15 +9,17 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="assets/lib/leaflet.css">
+  <!-- <link rel="stylesheet" href="assets/lib/leaflet.css"> -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+  crossorigin=""></script>
   <link rel="stylesheet" href="assets/css/style.css">
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
-
 <body>
-  
-  
   <div class="container-weather">
     <div id="weather">
       <div id="description"></div>
@@ -26,43 +27,28 @@
       <div id="location"></div>
     </div>
   </div>
-  
   <div class="container map">
     <div id="map"></div>
   </div>
-
+  
+  <!-- <button type="button" class="btn btn-warning">Upload Photo</button> -->
   <div class="jumbotron jumbotron-fluid m-0 bg-dark">
     <div class="container">
-        <div class="container map">
-            <div id="map">
-            </div>
-            <div id="weather">
-                <div id="description"></div>
-                <h1 id="temp"></h1>
-                <div id="location"></div>
-            </div>
       <h1 class="display-4">Nice Bass!</h1>
-
-      <h2 class="display-4"> Fishing Tournament Catch Tracker</h2>
-      <p class="lead"><strong> Get real time updates to win first place!</strong></p>
-
+      <h2 class="display-4"> Bass Fishing Tournament Catch Tracker</h2>
+      <p class="lead">Get real-time updates and win first place!</p>
     </div>
   </div>
-
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item active">
-
-          <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
-=======
-          
+          <a class="nav-link" href="#">Top Three<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#"></a>
@@ -71,50 +57,23 @@
           <a class="nav-link" href="#">Current Catch</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Precipitation</a>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Humidity</a>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Temperature</a>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Cloudiness</a>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Wind Speed/Direction</a>
-        <!-- <li class="nav-item dropdown"> -->
-          <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Radar
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"> -->
-            <!-- <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a> -->
-          
-          </div>
+          <a class="nav-link" href="#">Temperature</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Cloud Coverage</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Accumulated Precipition</a>
         </li>
       </ul>
     </div>
   </nav>
+  <div class="container">
+    <div id="radar" style="width: 256px; height: 256px; background-repeat: no-repeat"></div>
   </div>
-  <hr>
-    <!-- <div id="properties">
-        <input class="form-control m-0" type="text" placeholder="" readonly>
-        <input class="form-control m-0" type="text" placeholder="" readonly>
-        <input class="form-control m-0" type="text" placeholder="" readonly>
-        <input class="form-control m-0" type="text" placeholder="" readonly>
-        <input class="form-control m-0" type="text" placeholder="" readonly>
-    </div> -->
-
-
-
-  <div id="radar"></div>
-
-
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuRk6NNaEEnPYbqhunY4xCs96MvlNoPIw"
     type="text/javascript"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-  <script src="assets/lib/leaflet.js"></script>
   <script src="assets/javascript/app.js"></script>
 </body>
-
 </html>
