@@ -1,9 +1,9 @@
 #map {
-    height: 370px;
-    width:350px;
+    height: 340px;
+    width:550px;
     float: right;
     left: 213px;
-    border: solid rgb(41, 41, 41) 8px;
+    border: solid grey 5px;
     z-index: 2;
 }
 
@@ -23,13 +23,15 @@ html, body {
 }
 
 .bg-light {
-    background-color: rgb(206, 201, 201) !important;
+    background-color: rgb(160, 160, 160) !important;
 }
 
 #weather {
     height: 15%;
     width: 10%;
     position: absolute;
+    left: 15px;
+    top: 10px;
     z-index: 1;
     border: solid grey 5px;
     background-color: rgb(152, 211, 150)
@@ -43,12 +45,13 @@ html, body {
 }
 
 #radar {
+    border: solid grey 5px;
     position: absolute;
     left: 45px;
     bottom: 1px;
     width: 1450px;
-    height: 380px;
-    margin: auto;
+    height: 600px;
+    margin-bottom: 5px;
     /* background-color: rgba(92, 160, 92, 0.63); */
 }
 
@@ -61,3 +64,11 @@ html, body {
 .nav-item dropdown {
     left: 5px;
 }
+
+.btn {
+    position: relative;
+    top: 260px;
+    left: 30px;
+    border: solid black 2px;
+}
+

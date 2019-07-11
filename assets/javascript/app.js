@@ -1,3 +1,10 @@
+
+
+// create var map to contain response from google maps api call
+// standard google maps api ajax call in accordance with google maps api docs
+// function initMap appends the response from the google maps api call to the map div
+// centering the map to longitude and latitude and setting zoom 
+
 let map;
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -7,11 +14,19 @@ function initMap() {
   });
 }
 
+
+// running the initialize map function
+
 initMap();
 
 
+// created function for calling the currentWeather api 
+// set api key to var key
+// api call in accordance with openweather api docs
+// function for converting the response data from api call to json format
+
 function currentWeather() {
-  var key = '184eb6450fef976a167dbae5ef669d22';
+  let key = '184eb6450fef976a167dbae5ef669d22';
   fetch('https://api.openweathermap.org/data/2.5/weather?lat=37.5241&lon=-77.4223&appid=' + key)
     .then(function (resp) { return resp.json() }) // Convert data to json
     .then(function (data) {
@@ -22,29 +37,13 @@ function currentWeather() {
     });
 }
 
-
-// function weatherRadar() {
-//   var key = '184eb6450fef976a167dbae5ef669d22';
-//   fetch('http://maps.openweathermap.org/maps/2.0/weather/TA2/{12}/{37.5241}/{-77.4223}?date=000107092019&opacity=0.9&fill_bound=true&palette=0:FF0000;10:00FF00;20:0000FF&appid=' + key)
-//     .then(function (resp) { return resp.json() }) // Convert data to json
-//     .then(function (data) {
-//       console.log(data);
-//     })
-//     .catch(function () {
-//       // catch any errors
-//     });
-// }
-
-
 window.onload = function () {
   currentWeather();
-  // weatherRadar();
 }
 
-
 function drawWeather(d) {
-  // var celcius = Math.round(parseFloat(d.main.temp)-273.15);
-  var fahrenheit = Math.round(((parseFloat(d.main.temp) - 273.15) * 1.8) + 32);
+  // let celcius = Math.round(parseFloat(d.main.temp)-273.15);
+  let fahrenheit = Math.round(((parseFloat(d.main.temp) - 273.15) * 1.8) + 32);
 
   document.getElementById('description').innerHTML = titleCase(d.weather[0].description);
   document.getElementById('temp').innerHTML = fahrenheit + '&deg;';
@@ -59,19 +58,153 @@ function titleCase(string) {
   return string
 }
 
-var radar = L.map('radar', {
-  center: [37.5241, -77.4223],
-  zoom: 12,
-  minZoom: 9,
-  maxZoom: 14,
-  zoomControl: false,
-})
+console.log(">hello");
 
-var key = '184eb6450fef976a167dbae5ef669d22';
-var radarTemp = L.tileLayer('http://maps.openweathermap.org/maps/2.0/weather/TA2/{12}/{37.5241}/{-77.4223}?date=010007092019&opacity=0.8&fill_bound=true&appid' + key,{
-minZoom: 9,
-maxZoom: 14
+
+// setting default zoom properties for the map layer tiles
+// setting the map to variable radar
+
+
+
+update('temp_new')
+function update(layer){
+let zoom = 13;
+let radar = L.map('radar').setView([37.5241, -77.4223], zoom);
+
+
+// defining custom row and column properties for the map tiles as the default tile properties appeared offset when
+  //superimposed over the map
+
+let rows = Math.pow(2, zoom);
+let cols = rows;
+
+
+// setting url components to variables to reduce redundancy in multiple openweather api ajax calls
+// setting url to var url 
+
+let key = '184eb6450fef976a167dbae5ef669d22';
+// let layer = `temp_new`;
+let z = zoom;
+let x = Math.floor(rows / 2);
+let y = Math.floor(cols / 2);
+let url = `https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid={api_key}`;
+
+
+// setting api key for mapbox to var mapboxKey
+// ajax call to the mapbox api utilizing leaflet api plug-in format
+// defining minimum and maximum zoom properties for the map
+// appending the map to the radar div
+
+let mapboxKey = 'pk.eyJ1Ijoia3lsZWNveDIxMyIsImEiOiJjanh3Z2liNnQwMzQ1M2xvemRuM2RvcWRqIn0.Q5gET69Q50YjzXLj1zRp7g';
+L.tileLayer(`https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=${mapboxKey}`, {
+  minZoom: 0,
+  maxZoom: 18,
+  //z: zoom,
+  id: 'mapbox.streets'
 }).addTo(radar);
+console.log(url);
+
+
+// assigning default tile layer (temperature layer) to var radarTemp
+// utilizing global variables specific to the url
+// appending the tile layer to the radar div which now contains the map
+
+let radarTemp = L.tileLayer(url, {
+  layer: layer,
+  api_key: key,
+  //z: z,
+  //x: x,
+  //y: y,
+  minZoom: 0,
+  maxZoom: 18
+}
+).addTo(radar);
+console.log(url);
+};
+
+$('body').on('click', '.nav-link', function(){
+  $('#radar').remove();
+  newLayer = ($(this).attr("data-name"));
+  console.log(newLayer);
+  $('.radar-map-container').append("<div id='radar' style='width: 1440px; height: 400px; background-repeat: no-repeat'</div>");
+  update(newLayer)
+});
+
+
+// let layerClouds = 'clouds_new';
+
+// let radarClouds = L.tileLayer(url, {
+  //   layer: layerClouds,
+  //   api_key: key,
+//   minZoom: 0,
+//   maxZoom: 18
+// }
+// ).addTo(radar);
+// console.log(url);
+// layer.remove();
+
+// let layerPrecip = 'precipitation_new';
+
+// let radarPrecip = L.tileLayer(url, {
+//   layer: layerPrecip,
+//   api_key: key,
+//   minZoom: 0,
+//   maxZoom: 18
+// }
+// ).addTo(radar);
+// console.log(url);
+// layer.remove();
+
+
+// let layerWind = 'wind_new';
+
+// let radarWind = L.tileLayer(url, {
+//   layer: layerWind,
+//   api_key: key,
+//   minZoom: 0,
+//   maxZoom: 18
+// }
+// ).addTo(radar);
+// console.log(url);
+// layer.remove();
+
+
+
+// let layerPressure = 'pressure_new';
+
+// let radarPressue = L.tileLayer(url, {
+//   layer: layerPressure,
+//   api_key: key,
+//   minZoom: 0,
+//   maxZoom: 18
+// }
+// ).addTo(radar);
+// console.log(url);
+// layer.remove();
+
+
+
+// let layerSatellite = 'satellite_new';
+
+// let radarSatellite = L.tileLayer(url, {
+//   layer: layerSatellite,
+//   api_key: key,
+//   minZoom: 0,
+//   maxZoom: 18
+// }
+// ).addTo(radar);
+// console.log(url); 
+// layer.remove();
+
+
+
+
+// Each map tile is a 256x256 point square. At zoom level 0, the entire world is 
+// rendered in a single tile. Each zoom level increases the magnification by a 
+// factor of two. So, at zoom level 1 the map will be rendered as a 2x2 grid of 
+// tiles, or a 4x4 grid at zoom level 2, a 8x8 grid at zoom level 3, and so on. If 
+// you are creating images for a tile layer, you will need to create a new 256x256 
+// point image for each tile at each zoom level that you wish to support.
 
 
 
@@ -90,23 +223,32 @@ maxZoom: 14
 
 
 
-// // function drawTemp(d){
-// //     document.getElementById('radar')
-// // }
 
 
-// //Google Maps API key - Curtis
-// //AIzaSyCuRk6NNaEEnPYbqhunY4xCs96MvlNoPIw
 
-// //Storm Glass API call example
-// /*const lat = 36.4124;
-// const lng = 74.0319;
-// const params = 'seaLevel';
 
-// fetch(`https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${lng}&params=${params}`, {
-//   headers: {
-//     'Authorization': '11ed69c2-9d29-11e9-9e74-0242ac130004-11ed6ab2-9d29-11e9-9e74-0242ac130004'
+
+
+
+
+
+
+// $("nav-link").attr("clouds_new");
+
+// $(document).on("click", "nav-link", function () {
+//   layer = `clouds_new`;
+//   z = zoom;
+//   x = Math.floor(rows / 2);
+//   y = Math.floor(cols / 2);
+//   url = `https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid={api_key}`;
+//   radarClouds = L.tileLayer(url, {
+//     layer: layer,
+//     api_key: key,
+//     //z: z,
+//     //x: x,
+//     //y: y,
+//     minZoom: 0,
+//     maxZoom: 18
 //   }
-// }).then((response) => response.json()).then((jsonData) => {
-//   console.log(jsonData);
-// });*/
+//   ).addTo(radar);
+// });
