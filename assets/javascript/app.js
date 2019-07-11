@@ -1,3 +1,4 @@
+
 // create var map to contain response from google maps api call
 // standard google maps api ajax call in accordance with google maps api docs
 // function initMap appends the response from the google maps api call to the map div
@@ -16,6 +17,7 @@ function initMap() {
 // running the initialize map function
 
 initMap();
+
 
 
 // created function for calling the currentWeather api 
@@ -120,10 +122,20 @@ let radarTemp = L.tileLayer(url, {
 console.log(url);
 };
 
-$('body').on('click', '.nav-link', function(){
+$('body').on('click', '.layer-update', function(){
   $('#radar').remove();
   newLayer = ($(this).attr("data-name"));
   console.log(newLayer);
+
   $('.radar-map-container').append("<div id='radar'</div>");
   update(newLayer)
 });
+
+
+// Each map tile is a 256x256 point square. At zoom level 0, the entire world is 
+// rendered in a single tile. Each zoom level increases the magnification by a 
+// factor of two. So, at zoom level 1 the map will be rendered as a 2x2 grid of 
+// tiles, or a 4x4 grid at zoom level 2, a 8x8 grid at zoom level 3, and so on. If 
+// you are creating images for a tile layer, you will need to create a new 256x256 
+// point image for each tile at each zoom level that you wish to support.
+

@@ -15,6 +15,7 @@ html, body {
 .container {
     background-color: dark rgb(165, 193, 230);
   }
+
 #weather {
     height: 15%;
     width: 10%;
@@ -55,12 +56,14 @@ html, body {
 .nav-item {
     font-weight: bold;
 }
+
 .btn {
     position: relative;
     top: 260px;
     left: 30px;
     border: solid black 2px;
 }
+
 .big {
     font-size: 96px;
     font-family: 'Luckiest Guy', cursive;
@@ -73,3 +76,4 @@ html, body {
     font-size: 16px;
     font-family: 'Luckiest Guy', cursive;
 }
+
