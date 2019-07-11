@@ -1,5 +1,4 @@
 
-
 // create var map to contain response from google maps api call
 // standard google maps api ajax call in accordance with google maps api docs
 // function initMap appends the response from the google maps api call to the map div
@@ -25,7 +24,6 @@ initMap();
 // set api key to var key
 // api call in accordance with openweather api docs
 // function for converting the response data from api call to json format
-
 
 function currentWeather() {
   let key = '184eb6450fef976a167dbae5ef669d22';
@@ -61,7 +59,6 @@ function titleCase(string) {
 }
 
 console.log(">hello");
-
 
 
 // setting default zoom properties for the map layer tiles
@@ -132,8 +129,6 @@ $('body').on('click', '.layer-update', function(){
   $('.radar-map-container').append("<div id='radar' style='width: 256px; height: 256px; background-repeat: no-repeat'</div>");
   update(newLayer)
 });
-
-
 
 // Each map tile is a 256x256 point square. At zoom level 0, the entire world is 
 // rendered in a single tile. Each zoom level increases the magnification by a 

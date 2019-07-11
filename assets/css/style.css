@@ -3,7 +3,7 @@
     width:550px;
     float: right;
     left: 213px;
-    border: solid grey 5px;
+    border: solid rgb(116, 116, 116) 5px;
     z-index: 2;
 }
 html, body {
@@ -15,12 +15,7 @@ html, body {
 .container {
     background-color: dark rgb(165, 193, 230);
   }
-.bg-dark {
-    background-color: rgb(211, 211, 211) !important;
-}
-.bg-light {
-    background-color: rgb(160, 160, 160) !important;
-}
+
 #weather {
     height: 15%;
     width: 10%;
@@ -28,13 +23,14 @@ html, body {
     left: 15px;
     top: 10px;
     z-index: 1;
-    border: solid grey 5px;
-    background-color: rgb(152, 211, 150)
+    border: solid black 5px;
+    background-color: grey;
+    color: black;
 }
 .jumbotron {
     z-index: initial;
     height: 370px;
-    background-color: rgb(161, 102, 102);
+    background-color: rgb(166, 209, 156);
     border-bottom: solid  rgba(90, 141, 69, 0.76) 30px;
 }
 #radar {
@@ -51,9 +47,13 @@ html, body {
     z-index: 1;
     position: relative;
     bottom: 90px;
+    background-color: rgb(151, 144, 144);
+    border-top: black solid 5px;
+    border-left: black solid 3px;
+    border-bottom: black solid 5px;
 }
-.nav-item dropdown {
-    left: 5px;
+.nav-item {
+    font-weight: bold;
 }
 
 .btn {
@@ -61,5 +61,18 @@ html, body {
     top: 260px;
     left: 30px;
     border: solid black 2px;
+}
+
+.big {
+    font-size: 96px;
+    font-family: 'Luckiest Guy', cursive;
+}
+.small {
+    font-size: 28px;
+    font-family: 'Luckiest Guy', cursive;
+}
+.mini {
+    font-size: 16px;
+    font-family: 'Luckiest Guy', cursive;
 }
 
