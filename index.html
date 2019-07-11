@@ -8,14 +8,15 @@
   <link rel="stylesheet" href="assets/css/reset.css">
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- <link rel="stylesheet" href="assets/lib/leaflet.css"> -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-  integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-  crossorigin=""/>
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-  integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-  crossorigin=""></script>
+    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+    crossorigin=""></script>
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
@@ -30,16 +31,15 @@
   <div class="container map">
     <div id="map"></div>
   </div>
-  
   <!-- <button type="button" class="btn btn-warning">Upload Photo</button> -->
-  <div class="jumbotron jumbotron-fluid m-0 bg-dark">
+  <div class="jumbotron jumbotron-fluid m-0 pt-0 bg">
     <div class="container">
-      <h1 class="display-4">Nice Bass!</h1>
-      <h2 class="display-4"> Bass Fishing Tournament Catch Tracker</h2>
-      <p class="lead">Get real-time updates and win first place!</p>
+      <h1 class="display-4 big">Nice Bass!</h1>
+      <h2 class="display-4 small"> Bass Fishing Tournament Catch Tracker</h2>
+      <p class="lead mini">Get real-time updates and win first place!</p>
     </div>
   </div>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg">
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,29 +47,38 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item active">
+        <!-- <li class="nav-item active">
           <a class="nav-link" href="#">Top Three<span class="sr-only">(current)</span></a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="#"></a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">Current Catch</a>
+        </li> -->
+        <li class="nav-item">
+          <a class="nav-link" data-name="temp_new" href="#">Temperature</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Temperature</a>
+          <a class="nav-link" data-name="clouds_new" href="#">Cloud Coverage</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Cloud Coverage</a>
+          <a class="nav-link" data-name="precipitation_new" href="#">Accumulated Precipitation</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Accumulated Precipition</a>
+          <a class="nav-link" data-name="wind_new" href="#">Wind Speed</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-name="pressure_new" href="#">Sea Level Pressure</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-name="satellite_new" href="#">Satellite</a>
         </li>
       </ul>
     </div>
   </nav>
-  <div class="container">
-    <div id="radar" style="width: 256px; height: 256px; background-repeat: no-repeat"></div>
+  <div class="container radar-map-container">
+    <div id="radar" style="width: 1450px; height: 400px; background-repeat: no-repeat"></div>
   </div>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuRk6NNaEEnPYbqhunY4xCs96MvlNoPIw"
     type="text/javascript"></script>
