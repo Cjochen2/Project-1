@@ -126,9 +126,11 @@ $('body').on('click', '.layer-update', function(){
   $('#radar').remove();
   newLayer = ($(this).attr("data-name"));
   console.log(newLayer);
-  $('.radar-map-container').append("<div id='radar' style='width: 256px; height: 256px; background-repeat: no-repeat'</div>");
+
+  $('.radar-map-container').append("<div id='radar'</div>");
   update(newLayer)
 });
+
 
 // Each map tile is a 256x256 point square. At zoom level 0, the entire world is 
 // rendered in a single tile. Each zoom level increases the magnification by a 

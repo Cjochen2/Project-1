@@ -39,8 +39,9 @@ html, body {
     left: 45px;
     bottom: 1px;
     width: 1450px;
-    height: 600px;
+    height: 550px;
     margin-bottom: 5px;
+    background-repeat: no-repeat;
     /* background-color: rgba(92, 160, 92, 0.63); */
 }
 .navbar {
