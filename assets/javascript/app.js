@@ -20,10 +20,12 @@ function initMap() {
 initMap();
 
 
+
 // created function for calling the currentWeather api 
 // set api key to var key
 // api call in accordance with openweather api docs
 // function for converting the response data from api call to json format
+
 
 function currentWeather() {
   let key = '184eb6450fef976a167dbae5ef669d22';
@@ -59,6 +61,7 @@ function titleCase(string) {
 }
 
 console.log(">hello");
+
 
 
 // setting default zoom properties for the map layer tiles
@@ -122,80 +125,13 @@ let radarTemp = L.tileLayer(url, {
 console.log(url);
 };
 
-$('body').on('click', '.nav-link', function(){
+$('body').on('click', '.layer-update', function(){
   $('#radar').remove();
   newLayer = ($(this).attr("data-name"));
   console.log(newLayer);
-  $('.radar-map-container').append("<div id='radar' style='width: 1440px; height: 400px; background-repeat: no-repeat'</div>");
+  $('.radar-map-container').append("<div id='radar' style='width: 256px; height: 256px; background-repeat: no-repeat'</div>");
   update(newLayer)
 });
-
-
-// let layerClouds = 'clouds_new';
-
-// let radarClouds = L.tileLayer(url, {
-  //   layer: layerClouds,
-  //   api_key: key,
-//   minZoom: 0,
-//   maxZoom: 18
-// }
-// ).addTo(radar);
-// console.log(url);
-// layer.remove();
-
-// let layerPrecip = 'precipitation_new';
-
-// let radarPrecip = L.tileLayer(url, {
-//   layer: layerPrecip,
-//   api_key: key,
-//   minZoom: 0,
-//   maxZoom: 18
-// }
-// ).addTo(radar);
-// console.log(url);
-// layer.remove();
-
-
-// let layerWind = 'wind_new';
-
-// let radarWind = L.tileLayer(url, {
-//   layer: layerWind,
-//   api_key: key,
-//   minZoom: 0,
-//   maxZoom: 18
-// }
-// ).addTo(radar);
-// console.log(url);
-// layer.remove();
-
-
-
-// let layerPressure = 'pressure_new';
-
-// let radarPressue = L.tileLayer(url, {
-//   layer: layerPressure,
-//   api_key: key,
-//   minZoom: 0,
-//   maxZoom: 18
-// }
-// ).addTo(radar);
-// console.log(url);
-// layer.remove();
-
-
-
-// let layerSatellite = 'satellite_new';
-
-// let radarSatellite = L.tileLayer(url, {
-//   layer: layerSatellite,
-//   api_key: key,
-//   minZoom: 0,
-//   maxZoom: 18
-// }
-// ).addTo(radar);
-// console.log(url); 
-// layer.remove();
-
 
 
 
@@ -206,49 +142,3 @@ $('body').on('click', '.nav-link', function(){
 // you are creating images for a tile layer, you will need to create a new 256x256 
 // point image for each tile at each zoom level that you wish to support.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// $("nav-link").attr("clouds_new");
-
-// $(document).on("click", "nav-link", function () {
-//   layer = `clouds_new`;
-//   z = zoom;
-//   x = Math.floor(rows / 2);
-//   y = Math.floor(cols / 2);
-//   url = `https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid={api_key}`;
-//   radarClouds = L.tileLayer(url, {
-//     layer: layer,
-//     api_key: key,
-//     //z: z,
-//     //x: x,
-//     //y: y,
-//     minZoom: 0,
-//     maxZoom: 18
-//   }
-//   ).addTo(radar);
-// });
